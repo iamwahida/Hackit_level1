@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Level 1</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+
+            min-height: 100vh;
+            height: 100vh;
+            background-image: url('https://wallpapers.com/images/hd/rome-2-julius-caesar-of-rome-u4bfw81i2f71vkvo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            margin: 120px auto;
+            width: 350px;
+            padding: 25px;
+            background: rgba(255,255,255,0.85);
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            background: #333;
+            color: white;
+        }
+
+        #msg {
+            color: red;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<!--
+Hinweis:
+
+"Anno antiquo dux clarissimus Romae occisus est.
+Idibus Martiis cecidit ille, cui nomen erat Caesar.
+Dic mihi: quo anno mortuus est?"
+-->
+
+<div class="container">
+    <h1>Level 1</h1>
+    <p>Gib das Passwort ein, um weiterzukommen:</p>
+
+    <input id="pw" type="password" placeholder="Passwort...">
+    <br>
+    <button onclick="checkPassword()">Weiter</button>
+
+    <p id="msg"></p>
+</div>
+
+
+<script>
+    const secret = "NDQ=";
+
+    function checkPassword() {
+        const input = document.getElementById("pw").value.trim();
+        const decoded = atob(secret);
+        if (input === decoded) {
+            window.location.href = "https://example.com/level2";
+        } else {
+            document.getElementById("msg").innerText = "Falsches Passwort!";
+        }
+    }
+</script>
+
+</body>
+</html>
