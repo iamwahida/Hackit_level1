@@ -79,18 +79,21 @@ Dic mihi: quo anno mortuus est?"
 
 
 <script>
-    const secret = "NDQ=";
-
+    const secretPw = "NDQ="; 
+    const secretUrl = "aHR0cHM6Ly9oYWNraXQtbGV2ZWwyLm9ucmVuZGVyLmNvbQ=="; 
     function checkPassword() {
         const input = document.getElementById("pw").value.trim();
-        const decoded = atob(secret);
-        if (input === decoded) {
-            window.location.href = "https://hackit-level2.onrender.com";
+        const decodedPw = atob(secretPw);
+
+        if (input === decodedPw) {
+            const url = atob(secretUrl);  
+            window.location.href = url;
         } else {
             document.getElementById("msg").innerText = "Falsches Passwort!";
         }
     }
 </script>
+
 
 </body>
 </html>
